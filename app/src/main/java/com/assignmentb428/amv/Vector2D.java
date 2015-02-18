@@ -111,12 +111,9 @@ public class Vector2D {
         double cp = this.x * v.x + this.y * v.y;
         return cp;
     }
-    public double dotProduct(double x1, double y1) {
-        double cp = this.x * x + this.y * y;
-        return cp;
-    }
+
     /*
-     * returns the crossproduct of two vectors
+     * returns the cross product of two vectors
      */
     public static double crossProduct(Vector2D v1, Vector2D v2) {
         return (v1.y * v2.x - v1.x * v2.y);
