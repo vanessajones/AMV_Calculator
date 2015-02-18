@@ -11,11 +11,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class CartesianActivity extends ActionBarActivity {
+
+    public double v1x, v1y, v2x, v2y, v3x, v3y, sumx, sumy;
+    public Button display;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,7 @@ public class CartesianActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
     }
 
 
@@ -33,6 +38,8 @@ public class CartesianActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_cartesian, menu);
+        display = (Button) findViewById(R.id.buttonDisplay);
+        display.setVisibility(View.INVISIBLE);
         return true;
     }
 
@@ -73,8 +80,6 @@ public class CartesianActivity extends ActionBarActivity {
         Vector2D v3;
         Vector2D sum;
 
-        double v1x, v1y, v2x, v2y, v3x, v3y;
-
         TextView result = (TextView) findViewById(R.id.textView4);
 
         EditText inputV1X = (EditText) findViewById(R.id.editText);
@@ -103,10 +108,14 @@ public class CartesianActivity extends ActionBarActivity {
                 sum = v1.add2(v2);
                 sum = sum.add2(v3);
 
+                sumx = sum.getX();
+                sumy = sum.getY();
                 result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
+                display.setVisibility(View.VISIBLE);
             }
             catch (NumberFormatException e) {
                 result.setText("Input Error123");
+                display.setVisibility(View.INVISIBLE);
             }
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
@@ -120,10 +129,14 @@ public class CartesianActivity extends ActionBarActivity {
                 v1 = new Vector2D(v1x, v1y);
                 v3 = new Vector2D(v3x, v3y);
                 sum = v1.add2(v3);
+                sumx = sum.getX();
+                sumy = sum.getY();
                 result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
+                display.setVisibility(View.VISIBLE);
             }
             catch (NumberFormatException e) {
                 result.setText("Input Error13");
+                display.setVisibility(View.INVISIBLE);
             }
         }
         else if (!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
@@ -136,11 +149,16 @@ public class CartesianActivity extends ActionBarActivity {
 
                 v2 = new Vector2D(v2x, v2y);
                 v3 = new Vector2D(v3x, v3y);
+
                 sum = v2.add2(v3);
+                sumx = sum.getX();
+                sumy = sum.getY();
+                display.setVisibility(View.VISIBLE);
                 result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
             }
             catch (NumberFormatException e) {
                 result.setText("Input Error23");
+                display.setVisibility(View.INVISIBLE);
             }
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("")) {
@@ -154,10 +172,14 @@ public class CartesianActivity extends ActionBarActivity {
                 v1 = new Vector2D(v1x, v1y);
                 v2 = new Vector2D(v2x, v2y);
                 sum = v1.add2(v2);
+                sumx = sum.getX();
+                sumy = sum.getY();
                 result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
+                display.setVisibility(View.VISIBLE);
             }
             catch (NumberFormatException e){
                 result.setText("Input Error12");
+                display.setVisibility(View.INVISIBLE);
             }
         }
         else {
@@ -170,8 +192,6 @@ public class CartesianActivity extends ActionBarActivity {
         Vector2D v2;
         Vector2D v3;
         Vector2D dot;
-
-        double v1x, v1y, v2x, v2y, v3x, v3y;
 
         TextView result = (TextView) findViewById(R.id.textView4);
 
@@ -241,15 +261,14 @@ public class CartesianActivity extends ActionBarActivity {
         else {
             result.setText("Input Error");
         }
+        display.setVisibility(View.INVISIBLE);
     }
 
     public void cross(View view) {
         Vector2D v1;
         Vector2D v2;
         Vector2D v3;
-        Vector2D cross;
-
-        double v1x, v1y, v2x, v2y, v3x, v3y;
+        double cross;
 
         TextView result = (TextView) findViewById(R.id.textView4);
 
@@ -276,7 +295,7 @@ public class CartesianActivity extends ActionBarActivity {
                 v1 = new Vector2D(v1x, v1y);
                 v3 = new Vector2D(v3x, v3y);
                 cross = Vector2D.crossProduct(v1, v3);
-                result.setText("Cross Product = (" + cross.getX() + ", " + cross.getY() + ")");
+                result.setText("Cross Product = (" + cross + ")");
             }
             catch (NumberFormatException e) {
                 result.setText("Input Error13");
@@ -293,7 +312,7 @@ public class CartesianActivity extends ActionBarActivity {
                 v2 = new Vector2D(v2x, v2y);
                 v3 = new Vector2D(v3x, v3y);
                 cross = Vector2D.crossProduct(v2, v3);
-                result.setText("Cross Product = (" + cross.getX() + ", " + cross.getY() + ")");
+                result.setText("Cross Product = (" + cross + ")");
             }
             catch (NumberFormatException e) {
                 result.setText("Input Error23");
@@ -310,7 +329,7 @@ public class CartesianActivity extends ActionBarActivity {
                 v1 = new Vector2D(v1x, v1y);
                 v2 = new Vector2D(v2x, v2y);
                 cross = Vector2D.crossProduct(v1, v2);
-                result.setText("Cross Product = (" + cross.getX() + ", " + cross.getY() + ")");
+                result.setText("Cross Product = (" + cross + ")");
             }
             catch (NumberFormatException e){
                 result.setText("Input Error12");
@@ -319,9 +338,21 @@ public class CartesianActivity extends ActionBarActivity {
         else {
             result.setText("Input Error");
         }
+        display.setVisibility(View.INVISIBLE);
     }
+
     public void polar(View view) {
         Intent intent = new Intent(this, PolarActivity.class);
+        startActivity(intent);
+    }
+
+    public void display(View view) {
+        Intent intent = new Intent(this, DisplayActivity.class);
+        Bundle b = new Bundle();
+        b.putDouble("vx", sumx);
+        b.putDouble("vy", sumy);
+
+        intent.putExtras(b);
         startActivity(intent);
     }
 }

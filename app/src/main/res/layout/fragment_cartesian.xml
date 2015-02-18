@@ -17,6 +17,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display Result"
+        android:id="@+id/buttonDisplay"
+        android:onClick="display"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="440dp" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,6 +35,7 @@
         android:id="@+id/editText"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/button"
+        android:hint="X Coordinate"
         android:layout_toLeftOf="@+id/editText2"
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button" />
@@ -35,6 +46,7 @@
         android:inputType="text"
         android:ems="10"
         android:id="@+id/editText2"
+        android:hint="Y Coordinate"
         android:layout_alignTop="@+id/editText"
         android:layout_toRightOf="@+id/button"
         android:layout_toEndOf="@+id/button" />
@@ -66,6 +78,7 @@
         android:inputType="text"
         android:ems="10"
         android:id="@+id/editText3"
+        android:hint="X Coordinate"
         android:layout_alignBottom="@+id/textView2"
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText"
@@ -78,6 +91,7 @@
         android:inputType="text"
         android:ems="10"
         android:id="@+id/editText4"
+        android:hint="Y Coordinate"
         android:layout_alignBottom="@+id/editText3"
         android:layout_toRightOf="@+id/editText3"
         android:layout_alignParentRight="true"
@@ -100,6 +114,7 @@
         android:inputType="text"
         android:ems="10"
         android:id="@+id/editText5"
+        android:hint="X Coordinate"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/editText3"
         android:layout_alignStart="@+id/editText3"
@@ -112,6 +127,7 @@
         android:inputType="text"
         android:ems="10"
         android:id="@+id/editText6"
+        android:hint="Y Coordinate"
         android:layout_alignBottom="@+id/textView3"
         android:layout_toRightOf="@+id/editText5"
         android:layout_toEndOf="@+id/editText5" />

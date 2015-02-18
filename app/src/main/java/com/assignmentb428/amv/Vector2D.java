@@ -118,8 +118,8 @@ public class Vector2D {
     /*
      * returns the crossproduct of two vectors
      */
-    public static Vector2D crossProduct(Vector2D v1, Vector2D v2) {
-        return new Vector2D((v1.y * v2.x - v1.x * v2.y),(v1.x * v2.y - v1.x * v2.y));
+    public static double crossProduct(Vector2D v1, Vector2D v2) {
+        return (v1.y * v2.x - v1.x * v2.y);
     }
     /*
      * returns the length of this vector
@@ -153,5 +153,51 @@ public class Vector2D {
 
     public double getY() {
         return this.y;
+    }
+
+    public static Vector2D polarToCartesian(double v1_rho, double v1_theta) {
+        Vector2D vector = new Vector2D();
+        vector.x = Math.cos(Math.toRadians(v1_theta))*v1_rho;
+        vector.y = Math.sin(Math.toRadians(v1_theta))*v1_rho;
+        return vector;
+    }
+
+    public static Vector2D add3Polar(double v1_rho, double v1_theta, double v2_rho, double v2_theta, double v3_rho, double v3_theta) {
+
+        Vector2D v1 = new Vector2D();
+        Vector2D v2 = new Vector2D();
+        Vector2D v3 = new  Vector2D();
+        Vector2D sum = new Vector2D();
+
+         /* convert to cartesian */
+        v1.x = Math.cos(Math.toRadians(v1_theta))*v1_rho;
+        v1.y = Math.sin(Math.toRadians(v1_theta))*v1_rho;
+        v2.x = Math.cos(Math.toRadians(v2_theta))*v2_rho;
+        v2.y = Math.sin(Math.toRadians(v2_theta))*v2_rho;
+        v3.x = Math.cos(Math.toRadians(v3_theta))*v3_rho;
+        v3.y = Math.sin(Math.toRadians(v3_theta))*v3_rho;
+        sum = v1.add2(v2);
+        sum = sum.add2(v3);
+
+        return sum;
+
+    }
+
+    public static Vector2D add2Polar(double v1_rho, double v1_theta, double v2_rho, double v2_theta) {
+
+        Vector2D v1 = new Vector2D();
+        Vector2D v2 = new Vector2D();
+        Vector2D sum = new Vector2D();
+
+         /* convert to cartesian */
+        v1.x = Math.cos(Math.toRadians(v1_theta))*v1_rho;
+        v1.y = Math.sin(Math.toRadians(v1_theta))*v1_rho;
+        v2.x = Math.cos(Math.toRadians(v2_theta))*v2_rho;
+        v2.y = Math.sin(Math.toRadians(v2_theta))*v2_rho;
+
+        sum = v1.add2(v2);
+
+        return sum;
+
     }
 }
