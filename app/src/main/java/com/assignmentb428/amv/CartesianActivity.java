@@ -73,7 +73,7 @@ public class CartesianActivity extends ActionBarActivity {
             return rootView;
         }
     }
-    // Add the input vectors on the click
+    // Add the input vectors on the click (2 or 3 vectors only)
     public void add(View view) {
         Vector2D v1;
         Vector2D v2;
@@ -92,101 +92,83 @@ public class CartesianActivity extends ActionBarActivity {
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
         if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v1x = Double.parseDouble(inputV1X.getText().toString());
-                v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v2x = Double.parseDouble(inputV2X.getText().toString());
-                v2y = Double.parseDouble(inputV2Y.getText().toString());
+            v1x = Double.parseDouble(inputV1X.getText().toString());
+            v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v3x = Double.parseDouble(inputV3X.getText().toString());
-                v3y = Double.parseDouble(inputV3Y.getText().toString());
+            v2x = Double.parseDouble(inputV2X.getText().toString());
+            v2y = Double.parseDouble(inputV2Y.getText().toString());
 
-                v1 = new Vector2D(v1x, v1y);
-                v2 = new Vector2D(v2x, v2y);
-                v3 = new Vector2D(v3x, v3y);
-                sum = v1.add2(v2);
-                sum = sum.add2(v3);
+            v3x = Double.parseDouble(inputV3X.getText().toString());
+            v3y = Double.parseDouble(inputV3Y.getText().toString());
 
-                sumx = sum.getX();
-                sumy = sum.getY();
-                result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
-                display.setVisibility(View.VISIBLE);
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error123");
-                display.setVisibility(View.INVISIBLE);
-            }
+            v1 = new Vector2D(v1x, v1y);
+            v2 = new Vector2D(v2x, v2y);
+            v3 = new Vector2D(v3x, v3y);
+            sum = v1.add2(v2);
+            sum = sum.add2(v3);
+
+            sumx = sum.getX();
+            sumy = sum.getY();
+            result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
+            display.setVisibility(View.VISIBLE);
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v1x = Double.parseDouble(inputV1X.getText().toString());
-                v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v3x = Double.parseDouble(inputV3X.getText().toString());
-                v3y = Double.parseDouble(inputV3Y.getText().toString());
+            v1x = Double.parseDouble(inputV1X.getText().toString());
+            v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = new Vector2D(v1x, v1y);
-                v3 = new Vector2D(v3x, v3y);
-                sum = v1.add2(v3);
-                sumx = sum.getX();
-                sumy = sum.getY();
-                result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
-                display.setVisibility(View.VISIBLE);
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error13");
-                display.setVisibility(View.INVISIBLE);
-            }
+            v3x = Double.parseDouble(inputV3X.getText().toString());
+            v3y = Double.parseDouble(inputV3Y.getText().toString());
+
+            v1 = new Vector2D(v1x, v1y);
+            v3 = new Vector2D(v3x, v3y);
+            sum = v1.add2(v3);
+            sumx = sum.getX();
+            sumy = sum.getY();
+            result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
+            display.setVisibility(View.VISIBLE);
         }
         else if (!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v2x = Double.parseDouble(inputV2X.getText().toString());
-                v2y = Double.parseDouble(inputV2Y.getText().toString());
 
-                v3x = Double.parseDouble(inputV3X.getText().toString());
-                v3y = Double.parseDouble(inputV3Y.getText().toString());
+            v2x = Double.parseDouble(inputV2X.getText().toString());
+            v2y = Double.parseDouble(inputV2Y.getText().toString());
 
-                v2 = new Vector2D(v2x, v2y);
-                v3 = new Vector2D(v3x, v3y);
+            v3x = Double.parseDouble(inputV3X.getText().toString());
+            v3y = Double.parseDouble(inputV3Y.getText().toString());
 
-                sum = v2.add2(v3);
-                sumx = sum.getX();
-                sumy = sum.getY();
-                display.setVisibility(View.VISIBLE);
-                result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error23");
-                display.setVisibility(View.INVISIBLE);
-            }
+            v2 = new Vector2D(v2x, v2y);
+            v3 = new Vector2D(v3x, v3y);
+
+            sum = v2.add2(v3);
+            sumx = sum.getX();
+            sumy = sum.getY();
+            display.setVisibility(View.VISIBLE);
+            result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("")) {
-            try {
-                v1x = Double.parseDouble(inputV1X.getText().toString());
-                v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v2x = Double.parseDouble(inputV2X.getText().toString());
-                v2y = Double.parseDouble(inputV2Y.getText().toString());
+            v1x = Double.parseDouble(inputV1X.getText().toString());
+            v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = new Vector2D(v1x, v1y);
-                v2 = new Vector2D(v2x, v2y);
-                sum = v1.add2(v2);
-                sumx = sum.getX();
-                sumy = sum.getY();
-                result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
-                display.setVisibility(View.VISIBLE);
-            }
-            catch (NumberFormatException e){
-                result.setText("Input Error12");
-                display.setVisibility(View.INVISIBLE);
-            }
+            v2x = Double.parseDouble(inputV2X.getText().toString());
+            v2y = Double.parseDouble(inputV2Y.getText().toString());
+
+            v1 = new Vector2D(v1x, v1y);
+            v2 = new Vector2D(v2x, v2y);
+            sum = v1.add2(v2);
+            sumx = sum.getX();
+            sumy = sum.getY();
+            result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
+            display.setVisibility(View.VISIBLE);
         }
         else {
             result.setText("Input Error");
+            display.setVisibility(View.INVISIBLE);
         }
     }
 
+    // Dot product (2 vectors only)
     public void dot(View view) {
         Vector2D v1;
         Vector2D v2;
@@ -208,55 +190,48 @@ public class CartesianActivity extends ActionBarActivity {
             result.setText("Only 2 Vectors!");
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v1x = Double.parseDouble(inputV1X.getText().toString());
-                v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v3x = Double.parseDouble(inputV3X.getText().toString());
-                v3y = Double.parseDouble(inputV3Y.getText().toString());
+            v1x = Double.parseDouble(inputV1X.getText().toString());
+            v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = new Vector2D(v1x, v1y);
-                v3 = new Vector2D(v3x, v3y);
+            v3x = Double.parseDouble(inputV3X.getText().toString());
+            v3y = Double.parseDouble(inputV3Y.getText().toString());
 
-                result.setText("Dot Product = " + v1.dotProduct(v3));
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error13");
-            }
+            v1 = new Vector2D(v1x, v1y);
+            v3 = new Vector2D(v3x, v3y);
+
+            result.setText("Dot Product = " + v1.dotProduct(v3));
+
         }
         else if (!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v2x = Double.parseDouble(inputV2X.getText().toString());
-                v2y = Double.parseDouble(inputV2Y.getText().toString());
 
-                v3x = Double.parseDouble(inputV3X.getText().toString());
-                v3y = Double.parseDouble(inputV3Y.getText().toString());
+            v2x = Double.parseDouble(inputV2X.getText().toString());
+            v2y = Double.parseDouble(inputV2Y.getText().toString());
 
-                v2 = new Vector2D(v2x, v2y);
-                v3 = new Vector2D(v3x, v3y);
+            v3x = Double.parseDouble(inputV3X.getText().toString());
+            v3y = Double.parseDouble(inputV3Y.getText().toString());
 
-                result.setText("Dot Product = " + v2.dotProduct(v3));
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error23");
-            }
+            v2 = new Vector2D(v2x, v2y);
+            v3 = new Vector2D(v3x, v3y);
+
+            result.setText("Dot Product = " + v2.dotProduct(v3));
+
+
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("")) {
-            try {
-                v1x = Double.parseDouble(inputV1X.getText().toString());
-                v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v2x = Double.parseDouble(inputV2X.getText().toString());
-                v2y = Double.parseDouble(inputV2Y.getText().toString());
+            v1x = Double.parseDouble(inputV1X.getText().toString());
+            v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = new Vector2D(v1x, v1y);
-                v2 = new Vector2D(v2x, v2y);
+            v2x = Double.parseDouble(inputV2X.getText().toString());
+            v2y = Double.parseDouble(inputV2Y.getText().toString());
 
-                result.setText("Dot Product = " + v1.dotProduct(v2));
-            }
-            catch (NumberFormatException e){
-                result.setText("Input Error12");
-            }
+            v1 = new Vector2D(v1x, v1y);
+            v2 = new Vector2D(v2x, v2y);
+
+            result.setText("Dot Product = " + v1.dotProduct(v2));
+
+
         }
         else {
             result.setText("Input Error");
@@ -264,6 +239,7 @@ public class CartesianActivity extends ActionBarActivity {
         display.setVisibility(View.INVISIBLE);
     }
 
+    // Cross product (2 vectors only)
     public void cross(View view) {
         Vector2D v1;
         Vector2D v2;
@@ -285,55 +261,46 @@ public class CartesianActivity extends ActionBarActivity {
             result.setText("Only 2 Vectors!");
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v1x = Double.parseDouble(inputV1X.getText().toString());
-                v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v3x = Double.parseDouble(inputV3X.getText().toString());
-                v3y = Double.parseDouble(inputV3Y.getText().toString());
+            v1x = Double.parseDouble(inputV1X.getText().toString());
+            v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = new Vector2D(v1x, v1y);
-                v3 = new Vector2D(v3x, v3y);
-                cross = Vector2D.crossProduct(v1, v3);
-                result.setText("Cross Product = (" + cross + ")");
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error13");
-            }
+            v3x = Double.parseDouble(inputV3X.getText().toString());
+            v3y = Double.parseDouble(inputV3Y.getText().toString());
+
+            v1 = new Vector2D(v1x, v1y);
+            v3 = new Vector2D(v3x, v3y);
+            cross = Vector2D.crossProduct(v1, v3);
+            result.setText("Cross Product = " + cross);
+
         }
         else if (!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v2x = Double.parseDouble(inputV2X.getText().toString());
-                v2y = Double.parseDouble(inputV2Y.getText().toString());
 
-                v3x = Double.parseDouble(inputV3X.getText().toString());
-                v3y = Double.parseDouble(inputV3Y.getText().toString());
+            v2x = Double.parseDouble(inputV2X.getText().toString());
+            v2y = Double.parseDouble(inputV2Y.getText().toString());
 
-                v2 = new Vector2D(v2x, v2y);
-                v3 = new Vector2D(v3x, v3y);
-                cross = Vector2D.crossProduct(v2, v3);
-                result.setText("Cross Product = (" + cross + ")");
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error23");
-            }
+            v3x = Double.parseDouble(inputV3X.getText().toString());
+            v3y = Double.parseDouble(inputV3Y.getText().toString());
+
+            v2 = new Vector2D(v2x, v2y);
+            v3 = new Vector2D(v3x, v3y);
+            cross = Vector2D.crossProduct(v2, v3);
+            result.setText("Cross Product = " + cross);
+
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("")) {
-            try {
-                v1x = Double.parseDouble(inputV1X.getText().toString());
-                v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v2x = Double.parseDouble(inputV2X.getText().toString());
-                v2y = Double.parseDouble(inputV2Y.getText().toString());
+            v1x = Double.parseDouble(inputV1X.getText().toString());
+            v1y = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = new Vector2D(v1x, v1y);
-                v2 = new Vector2D(v2x, v2y);
-                cross = Vector2D.crossProduct(v1, v2);
-                result.setText("Cross Product = (" + cross + ")");
-            }
-            catch (NumberFormatException e){
-                result.setText("Input Error12");
-            }
+            v2x = Double.parseDouble(inputV2X.getText().toString());
+            v2y = Double.parseDouble(inputV2Y.getText().toString());
+
+            v1 = new Vector2D(v1x, v1y);
+            v2 = new Vector2D(v2x, v2y);
+            cross = Vector2D.crossProduct(v1, v2);
+            result.setText("Cross Product = " + cross);
+
         }
         else {
             result.setText("Input Error");

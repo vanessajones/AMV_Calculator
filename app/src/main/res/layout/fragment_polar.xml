@@ -30,26 +30,27 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="numberSigned|numberDecimal"
         android:ems="10"
         android:id="@+id/editText"
         android:hint="Magnitude (units)"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/button"
-        android:layout_toLeftOf="@+id/editText2"
         android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignStart="@+id/button"
+        android:layout_alignRight="@+id/buttonDisplay"
+        android:layout_alignEnd="@+id/buttonDisplay" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="numberSigned|numberDecimal"
         android:ems="10"
         android:id="@+id/editText2"
         android:hint="Angle (degrees)"
         android:layout_alignTop="@+id/editText"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:layout_toRightOf="@+id/editText"
+        android:layout_toEndOf="@+id/editText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,7 +76,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="numberSigned|numberDecimal"
         android:ems="10"
         android:hint="Magnitude (units)"
         android:id="@+id/editText3"
@@ -88,7 +89,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="numberSigned|numberDecimal"
         android:ems="10"
         android:id="@+id/editText4"
         android:hint="Angle (degrees)"
@@ -111,7 +112,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="numberSigned|numberDecimal"
         android:ems="10"
         android:id="@+id/editText5"
         android:hint="Magnitude (units)"
@@ -124,7 +125,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="numberSigned|numberDecimal"
         android:ems="10"
         android:id="@+id/editText6"
         android:hint="Angle (degrees)"

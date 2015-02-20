@@ -2,6 +2,8 @@ package com.assignmentb428.amv;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
+import android.view.View;
+import android.widget.EditText;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>

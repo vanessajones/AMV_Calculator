@@ -92,116 +92,101 @@ public class PolarActivity extends ActionBarActivity {
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
         if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v1_rho = Double.parseDouble(inputV1X.getText().toString());
-                v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v2_rho = Double.parseDouble(inputV2X.getText().toString());
-                v2_theta = Double.parseDouble(inputV2Y.getText().toString());
+            v1_rho = Double.parseDouble(inputV1X.getText().toString());
+            v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v3_rho = Double.parseDouble(inputV3X.getText().toString());
-                v3_theta = Double.parseDouble(inputV3Y.getText().toString());
+            v2_rho = Double.parseDouble(inputV2X.getText().toString());
+            v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                sum = Vector2D.add3Polar(v1_rho, v1_theta, v2_rho, v2_theta, v3_rho, v3_theta);
+            v3_rho = Double.parseDouble(inputV3X.getText().toString());
+            v3_theta = Double.parseDouble(inputV3Y.getText().toString());
 
-                sumx = sum.getX();
-                sumy = sum.getY();
+            sum = Vector2D.add3Polar(v1_rho, v1_theta, v2_rho, v2_theta, v3_rho, v3_theta);
+
+            sumx = sum.getX();
+            sumy = sum.getY();
 
                 /* Convert back to polar */
-                double radius = Math.sqrt(sum.getX() * sum.getX() + sum.getY() * sum.getY());
-                double angleInDegrees = Math.toDegrees(Math.acos(sum.getX() / radius));
+            double radius = Math.sqrt(sum.getX() * sum.getX() + sum.getY() * sum.getY());
+            double angleInDegrees = Math.toDegrees(Math.acos(sum.getX() / radius));
 
                 /* only two decimal places displayed */
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                display.setVisibility(View.VISIBLE);
-                result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error123");
-                display.setVisibility(View.INVISIBLE);
-            }
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            display.setVisibility(View.VISIBLE);
+            result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
+
+
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v1_rho = Double.parseDouble(inputV1X.getText().toString());
-                v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v3_rho = Double.parseDouble(inputV3X.getText().toString());
-                v3_theta = Double.parseDouble(inputV3Y.getText().toString());
+            v1_rho = Double.parseDouble(inputV1X.getText().toString());
+            v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                sum = Vector2D.add2Polar(v1_rho, v1_theta, v3_rho, v3_theta);
+            v3_rho = Double.parseDouble(inputV3X.getText().toString());
+            v3_theta = Double.parseDouble(inputV3Y.getText().toString());
 
-                sumx = sum.getX();
-                sumy = sum.getY();
+            sum = Vector2D.add2Polar(v1_rho, v1_theta, v3_rho, v3_theta);
+
+            sumx = sum.getX();
+            sumy = sum.getY();
 
                  /* Convert back to polar */
-                double radius = Math.sqrt(sum.getX() * sum.getX() + sum.getY() * sum.getY());
-                double angleInDegrees = Math.toDegrees(Math.acos(sum.getX() / radius));
+            double radius = Math.sqrt(sum.getX() * sum.getX() + sum.getY() * sum.getY());
+            double angleInDegrees = Math.toDegrees(Math.acos(sum.getX() / radius));
 
                 /* only two decimal places displayed */
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                display.setVisibility(View.VISIBLE);
-                result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error13");
-                display.setVisibility(View.INVISIBLE);
-            }
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            display.setVisibility(View.VISIBLE);
+            result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
+
         }
         else if (!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v2_rho = Double.parseDouble(inputV2X.getText().toString());
-                v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                v3_rho = Double.parseDouble(inputV3X.getText().toString());
-                v3_theta = Double.parseDouble(inputV3Y.getText().toString());
+            v2_rho = Double.parseDouble(inputV2X.getText().toString());
+            v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                sum = Vector2D.add2Polar(v2_rho, v2_theta, v3_rho, v3_theta);
+            v3_rho = Double.parseDouble(inputV3X.getText().toString());
+            v3_theta = Double.parseDouble(inputV3Y.getText().toString());
 
-                sumx = sum.getX();
-                sumy = sum.getY();
+            sum = Vector2D.add2Polar(v2_rho, v2_theta, v3_rho, v3_theta);
+
+            sumx = sum.getX();
+            sumy = sum.getY();
 
                  /* Convert back to polar */
-                double radius = Math.sqrt(sum.getX() * sum.getX() + sum.getY() * sum.getY());
-                double angleInDegrees = Math.toDegrees(Math.acos(sum.getX() / radius));
+            double radius = Math.sqrt(sum.getX() * sum.getX() + sum.getY() * sum.getY());
+            double angleInDegrees = Math.toDegrees(Math.acos(sum.getX() / radius));
 
                 /* only two decimal places displayed */
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                display.setVisibility(View.VISIBLE);
-                result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            display.setVisibility(View.VISIBLE);
+            result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
 
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error23");
-                display.setVisibility(View.INVISIBLE);
-            }
+
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("")) {
-            try {
-                v1_rho = Double.parseDouble(inputV1X.getText().toString());
-                v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v2_rho = Double.parseDouble(inputV2X.getText().toString());
-                v2_theta = Double.parseDouble(inputV2Y.getText().toString());
+            v1_rho = Double.parseDouble(inputV1X.getText().toString());
+            v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                sum = Vector2D.add2Polar(v1_rho, v1_theta, v2_rho, v2_theta);
+            v2_rho = Double.parseDouble(inputV2X.getText().toString());
+            v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                sumx = sum.getX();
-                sumy = sum.getY();
+            sum = Vector2D.add2Polar(v1_rho, v1_theta, v2_rho, v2_theta);
+
+            sumx = sum.getX();
+            sumy = sum.getY();
 
                  /* Convert back to polar */
-                double radius = Math.sqrt(sum.getX() * sum.getX() + sum.getY() * sum.getY());
-                double angleInDegrees = Math.toDegrees(Math.acos(sum.getX() / radius));
+            double radius = Math.sqrt(sum.getX() * sum.getX() + sum.getY() * sum.getY());
+            double angleInDegrees = Math.toDegrees(Math.acos(sum.getX() / radius));
 
                 /* only two decimal places displayed */
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                display.setVisibility(View.VISIBLE);
-                result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
-            }
-            catch (NumberFormatException e){
-                result.setText("Input Error12");
-                display.setVisibility(View.INVISIBLE);
-            }
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            display.setVisibility(View.VISIBLE);
+            result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
+
         }
         else {
             result.setText("Input Error");
@@ -233,59 +218,52 @@ public class PolarActivity extends ActionBarActivity {
             result.setText("Only 2 Vectors!");
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v1_rho = Double.parseDouble(inputV1X.getText().toString());
-                v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v3_rho = Double.parseDouble(inputV3X.getText().toString());
-                v3_theta = Double.parseDouble(inputV3Y.getText().toString());
+            v1_rho = Double.parseDouble(inputV1X.getText().toString());
+            v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = Vector2D.polarToCartesian(v1_rho, v1_theta);
-                v3 = Vector2D.polarToCartesian(v3_rho, v3_theta);
+            v3_rho = Double.parseDouble(inputV3X.getText().toString());
+            v3_theta = Double.parseDouble(inputV3Y.getText().toString());
 
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
+            v1 = Vector2D.polarToCartesian(v1_rho, v1_theta);
+            v3 = Vector2D.polarToCartesian(v3_rho, v3_theta);
 
-                result.setText("Dot Product = " + numberFormat.format(v1.dotProduct(v3)));
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error13");
-            }
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+
+            result.setText("Dot Product = " + numberFormat.format(v1.dotProduct(v3)));
+
+
         }
         else if (!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v2_rho = Double.parseDouble(inputV2X.getText().toString());
-                v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                v3_rho = Double.parseDouble(inputV3X.getText().toString());
-                v3_theta = Double.parseDouble(inputV3Y.getText().toString());
+            v2_rho = Double.parseDouble(inputV2X.getText().toString());
+            v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                v2 = Vector2D.polarToCartesian(v2_rho, v2_theta);
-                v3 = Vector2D.polarToCartesian(v3_rho, v3_theta);
+            v3_rho = Double.parseDouble(inputV3X.getText().toString());
+            v3_theta = Double.parseDouble(inputV3Y.getText().toString());
 
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                result.setText("Dot Product = " + numberFormat.format(v2.dotProduct(v3)));
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error23");
-            }
+            v2 = Vector2D.polarToCartesian(v2_rho, v2_theta);
+            v3 = Vector2D.polarToCartesian(v3_rho, v3_theta);
+
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            result.setText("Dot Product = " + numberFormat.format(v2.dotProduct(v3)));
+
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("")) {
-            try {
-                v1_rho = Double.parseDouble(inputV1X.getText().toString());
-                v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v2_rho = Double.parseDouble(inputV2X.getText().toString());
-                v2_theta = Double.parseDouble(inputV2Y.getText().toString());
+            v1_rho = Double.parseDouble(inputV1X.getText().toString());
+            v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = Vector2D.polarToCartesian(v1_rho, v1_theta);
-                v2 = Vector2D.polarToCartesian(v2_rho, v2_theta);
+            v2_rho = Double.parseDouble(inputV2X.getText().toString());
+            v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                result.setText("Dot Product = " + numberFormat.format(v1.dotProduct(v2)));
-            }
-            catch (NumberFormatException e){
-                result.setText("Input Error12");
-            }
+            v1 = Vector2D.polarToCartesian(v1_rho, v1_theta);
+            v2 = Vector2D.polarToCartesian(v2_rho, v2_theta);
+
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            result.setText("Dot Product = " + numberFormat.format(v1.dotProduct(v2)));
+
+
         }
         else {
             result.setText("Input Error");
@@ -317,64 +295,56 @@ public class PolarActivity extends ActionBarActivity {
             result.setText("Only 2 Vectors!");
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v1_rho = Double.parseDouble(inputV1X.getText().toString());
-                v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v3_rho = Double.parseDouble(inputV3X.getText().toString());
-                v3_theta = Double.parseDouble(inputV3Y.getText().toString());
+            v1_rho = Double.parseDouble(inputV1X.getText().toString());
+            v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = Vector2D.polarToCartesian(v1_rho, v1_theta);
-                v3 = Vector2D.polarToCartesian(v3_rho, v3_theta);
+            v3_rho = Double.parseDouble(inputV3X.getText().toString());
+            v3_theta = Double.parseDouble(inputV3Y.getText().toString());
 
-                crossProduct = Vector2D.crossProduct(v1,v3);
+            v1 = Vector2D.polarToCartesian(v1_rho, v1_theta);
+            v3 = Vector2D.polarToCartesian(v3_rho, v3_theta);
 
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                result.setText("Cross Product = (" + numberFormat.format(crossProduct) + ")");
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error13");
-            }
+            crossProduct = Vector2D.crossProduct(v1,v3);
+
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            result.setText("Cross Product = " + numberFormat.format(crossProduct));
+
         }
         else if (!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            try {
-                v2_rho = Double.parseDouble(inputV2X.getText().toString());
-                v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                v3_rho = Double.parseDouble(inputV3X.getText().toString());
-                v3_theta = Double.parseDouble(inputV3Y.getText().toString());
+            v2_rho = Double.parseDouble(inputV2X.getText().toString());
+            v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                v2 = Vector2D.polarToCartesian(v2_rho, v2_theta);
-                v3 = Vector2D.polarToCartesian(v3_rho, v3_theta);
+            v3_rho = Double.parseDouble(inputV3X.getText().toString());
+            v3_theta = Double.parseDouble(inputV3Y.getText().toString());
 
-                crossProduct = Vector2D.crossProduct(v2,v3);
+            v2 = Vector2D.polarToCartesian(v2_rho, v2_theta);
+            v3 = Vector2D.polarToCartesian(v3_rho, v3_theta);
 
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                result.setText("Cross Product = (" + numberFormat.format(crossProduct) + ")");
-            }
-            catch (NumberFormatException e) {
-                result.setText("Input Error23");
-            }
+            crossProduct = Vector2D.crossProduct(v2,v3);
+
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            result.setText("Cross Product = " + numberFormat.format(crossProduct));
+
+
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("")) {
-            try {
-                v1_rho = Double.parseDouble(inputV1X.getText().toString());
-                v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v2_rho = Double.parseDouble(inputV2X.getText().toString());
-                v2_theta = Double.parseDouble(inputV2Y.getText().toString());
+            v1_rho = Double.parseDouble(inputV1X.getText().toString());
+            v1_theta = Double.parseDouble(inputV1Y.getText().toString());
 
-                v1 = Vector2D.polarToCartesian(v1_rho, v1_theta);
-                v2 = Vector2D.polarToCartesian(v2_rho, v2_theta);
+            v2_rho = Double.parseDouble(inputV2X.getText().toString());
+            v2_theta = Double.parseDouble(inputV2Y.getText().toString());
 
-                crossProduct = Vector2D.crossProduct(v1,v2);
+            v1 = Vector2D.polarToCartesian(v1_rho, v1_theta);
+            v2 = Vector2D.polarToCartesian(v2_rho, v2_theta);
 
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                result.setText("Cross Product = (" + numberFormat.format(crossProduct) + ")");
-            }
-            catch (NumberFormatException e){
-                result.setText("Input Error12");
-            }
+            crossProduct = Vector2D.crossProduct(v1,v2);
+
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            result.setText("Cross Product = " + numberFormat.format(crossProduct));
+
         }
         else {
             result.setText("Input Error");
