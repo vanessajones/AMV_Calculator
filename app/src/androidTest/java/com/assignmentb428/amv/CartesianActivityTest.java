@@ -113,41 +113,32 @@ public class CartesianActivityTest extends ActivityInstrumentationTestCase2<Cart
         assertTrue(result.getText().toString().equals("Cross Product = 12.0"));
     }
 
-    /**
-     * Test invalid domain logic - Addition of 1 vector in cartesian form
-     */
+
+    // Test invalid domain logic - Addition of 1 vector in cartesian form
     @UiThreadTest
     public void testAdd1() {
 
     }
 
-    /**
-     * Test invalid domain logic - Dot product of 1 vector in cartesian form
-     */
+    // Test invalid domain logic - Dot product of 1 vector in cartesian form
     @UiThreadTest
     public void testDot1() {
 
     }
 
-    /**
-     * Test invalid domain logic - Cross product of 1 vector in cartesian form
-     */
+    // Test invalid domain logic - Cross product of 1 vector in cartesian form
     @UiThreadTest
     public void testCross1() {
 
     }
 
-    /**
-     * Test invalid domain logic - Dot product of 3 vectors in cartesian form
-     */
+    // Test invalid domain logic - Dot product of 3 vectors in cartesian form
     @UiThreadTest
     public void testDot3() {
 
     }
 
-    /**
-     * Test invalid domain logic - Cross product of 3 vectors in cartesian form
-     */
+    // Test invalid domain logic - Cross product of 3 vectors in cartesian form
     @UiThreadTest
     public void testCross3() {
 
