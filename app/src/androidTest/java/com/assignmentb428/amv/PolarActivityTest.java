@@ -112,7 +112,12 @@ public class PolarActivityTest extends ActivityInstrumentationTestCase2<PolarAct
      * Test invalid domain logic - Addition of 1 vector in polar form
      */
     @UiThreadTest
-    public void testAdd1() {
+    public void testAdd1_Polar() {
+        v1.setText("5");
+        theta1.setText("60");
+
+        add.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input more than one vector."));
 
     }
 
@@ -120,32 +125,58 @@ public class PolarActivityTest extends ActivityInstrumentationTestCase2<PolarAct
      * Test invalid domain logic - Dot product of 1 vector in polar form
      */
     @UiThreadTest
-    public void testDot1() {
+    public void testDot1_Polar() {
+        v1.setText("5");
+        theta1.setText("60");
 
+        dot.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input more than one vector."));
     }
 
     /**
      * Test invalid domain logic - Cross product of 1 vector in polar form
      */
     @UiThreadTest
-    public void testCross1() {
+    public void testCross1_Polar() {
+        v1.setText("5");
+        theta1.setText("60");
 
+        cross.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input more than one vector."));
     }
 
     /**
      * Test invalid domain logic - Dot product of 3 vectors in polar form
      */
     @UiThreadTest
-    public void testDot3() {
+    public void testDot3_Polar() {
+        v1.setText("5");
+        theta1.setText("60");
 
+        v2.setText("5");
+        theta2.setText("60");
+
+        v3.setText("5");
+        theta3.setText("60");
+
+        dot.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input only two vectors!"));
     }
-
     /**
      * Test invalid domain logic - Cross product of 3 vectors in polar form
      */
     @UiThreadTest
-    public void testCross3() {
+    public void testCross3_Polar() {
+        v1.setText("5");
+        theta1.setText("60");
 
+        v2.setText("5");
+        theta2.setText("60");
+
+        v3.setText("5");
+        theta3.setText("60");
+
+        cross.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input only two vectors!"));
     }
-
 }
