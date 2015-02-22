@@ -57,7 +57,7 @@ public class PolarActivityTest extends ActivityInstrumentationTestCase2<PolarAct
 
     // Test to add 2 vectors in polar form
     @UiThreadTest
-    public void testAdd2() {
+    public void testAdd2_Polar() {
         v1.setText("5");
         theta1.setText("60");
 
@@ -70,7 +70,7 @@ public class PolarActivityTest extends ActivityInstrumentationTestCase2<PolarAct
 
     // Test to add 3 vectors in polar form
     @UiThreadTest
-    public void testAdd3() {
+    public void testAdd3_Polar() {
         v1.setText("5");
         theta1.setText("60");
 
@@ -83,10 +83,9 @@ public class PolarActivityTest extends ActivityInstrumentationTestCase2<PolarAct
         add.performClick();
         assertTrue(result.getText().toString().equals("Sum = (9.03, 56.71°)"));
     }
-
     // Test to compute dot product of 2 vectors in polar form
     @UiThreadTest
-    public void testDot() {
+    public void testDot_Polar() {
         v1.setText("5");
         theta1.setText("60");
 
@@ -96,10 +95,9 @@ public class PolarActivityTest extends ActivityInstrumentationTestCase2<PolarAct
         dot.performClick();
         assertTrue(result.getText().toString().equals("Dot Product = 13.59"));
     }
-
     // Test to compute cross product of 2 vectors in polar form
     @UiThreadTest
-    public void testCross() {
+    public void testCross_Polar() {
         v1.setText("5");
         theta1.setText("60");
 
@@ -149,4 +147,5 @@ public class PolarActivityTest extends ActivityInstrumentationTestCase2<PolarAct
     public void testCross3() {
 
     }
+
 }

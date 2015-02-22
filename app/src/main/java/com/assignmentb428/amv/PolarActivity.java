@@ -91,6 +91,7 @@ public class PolarActivity extends ActionBarActivity {
         EditText inputV3X = (EditText) findViewById(R.id.editText5);
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
+        /* User inputs THREE VECTORS */
         if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
             v1_rho = Double.parseDouble(inputV1X.getText().toString());
@@ -115,9 +116,9 @@ public class PolarActivity extends ActionBarActivity {
             DecimalFormat numberFormat = new DecimalFormat("#.00");
             display.setVisibility(View.VISIBLE);
             result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
-
-
         }
+
+        /* User Inputs TWO VECTORS */
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
             v1_rho = Double.parseDouble(inputV1X.getText().toString());
@@ -190,9 +191,8 @@ public class PolarActivity extends ActionBarActivity {
         }
         else {
             result.setText("Input Error");
-            display.setVisibility(View.INVISIBLE);
         }
-
+        display.setVisibility(View.INVISIBLE);
     }
 
     public void dot(View view) {
@@ -214,10 +214,7 @@ public class PolarActivity extends ActionBarActivity {
         EditText inputV3X = (EditText) findViewById(R.id.editText5);
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
-        if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            result.setText("Only 2 Vectors!");
-        }
-        else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
+        if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
             v1_rho = Double.parseDouble(inputV1X.getText().toString());
             v1_theta = Double.parseDouble(inputV1Y.getText().toString());
@@ -263,13 +260,15 @@ public class PolarActivity extends ActionBarActivity {
             DecimalFormat numberFormat = new DecimalFormat("#.00");
             result.setText("Dot Product = " + numberFormat.format(v1.dotProduct(v2)));
 
-
         }
         else {
             result.setText("Input Error");
         }
+
         display.setVisibility(View.INVISIBLE);
     }
+
+    
 
     /* Cross product of two vector */
     public void cross(View view) {
@@ -291,10 +290,8 @@ public class PolarActivity extends ActionBarActivity {
         EditText inputV3X = (EditText) findViewById(R.id.editText5);
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
-        if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            result.setText("Only 2 Vectors!");
-        }
-        else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
+
+        if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
             v1_rho = Double.parseDouble(inputV1X.getText().toString());
             v1_theta = Double.parseDouble(inputV1Y.getText().toString());
@@ -352,20 +349,4 @@ public class PolarActivity extends ActionBarActivity {
         display.setVisibility(View.INVISIBLE);
     }
 
-    /* Go back to Cartesian Coordinates Activity "CartesianActivity" */
-    public void cartesian(View view) {
-        Intent intent = new Intent(this, CartesianActivity.class);
-        startActivity(intent);
-    }
-
-    /* Display resulting vector */
-    public void display(View view) {
-        Intent intent = new Intent(this, DisplayActivity.class);
-        Bundle b = new Bundle();
-        b.putDouble("vx", sumx);
-        b.putDouble("vy", sumy);
-
-        intent.putExtras(b);
-        startActivity(intent);
-    }
 }
