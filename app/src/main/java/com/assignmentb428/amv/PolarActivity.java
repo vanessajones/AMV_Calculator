@@ -95,6 +95,7 @@ public class PolarActivity extends ActionBarActivity {
 
         if ((!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals(""))) {
             result.setText("ERROR: Must input more than one vector.");
+            display.setVisibility(View.INVISIBLE);
         }
 
         /* User inputs THREE VECTORS */
@@ -195,12 +196,10 @@ public class PolarActivity extends ActionBarActivity {
             result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
 
         }
-        /*
         else {
             result.setText("Input Error");
+            display.setVisibility(View.INVISIBLE);
         }
-        */
-        display.setVisibility(View.INVISIBLE);
     }
 
     public void dot(View view) {
@@ -279,16 +278,11 @@ public class PolarActivity extends ActionBarActivity {
             result.setText("Dot Product = " + numberFormat.format(v1.dotProduct(v2)));
 
         }
-        /*
         else {
             result.setText("Input Error");
         }
-
-*/
         display.setVisibility(View.INVISIBLE);
     }
-
-
 
     /* Cross product of two vector */
     public void cross(View view) {
@@ -310,7 +304,7 @@ public class PolarActivity extends ActionBarActivity {
         EditText inputV3X = (EditText) findViewById(R.id.editText5);
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
-         /* Check if user has only entered one vector  */
+        /* Check if user has only entered one vector  */
         if ((!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals(""))) {
             result.setText("ERROR: Must input more than one vector.");
         }
@@ -319,7 +313,6 @@ public class PolarActivity extends ActionBarActivity {
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
             result.setText("ERROR: Must input only two vectors!");
         }
-
 
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
@@ -373,11 +366,9 @@ public class PolarActivity extends ActionBarActivity {
             result.setText("Cross Product = " + numberFormat.format(crossProduct));
 
         }
-        /*
         else {
             result.setText("Input Error");
         }
-        */
         display.setVisibility(View.INVISIBLE);
     }
 

@@ -91,7 +91,15 @@ public class CartesianActivity extends ActionBarActivity {
         EditText inputV3X = (EditText) findViewById(R.id.editText5);
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
-        if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
+        /* Check if user has only entered one vector */
+
+        if ((!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals(""))) {
+            result.setText("ERROR: Must input more than one vector.");
+            display.setVisibility(View.INVISIBLE);
+        }
+
+        // User has entered 3 vectors
+        else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
             v1x = Double.parseDouble(inputV1X.getText().toString());
             v1y = Double.parseDouble(inputV1Y.getText().toString());
@@ -113,6 +121,8 @@ public class CartesianActivity extends ActionBarActivity {
             result.setText("Sum = (" + sum.getX() + ", " + sum.getY() + ")");
             display.setVisibility(View.VISIBLE);
         }
+
+        // User has entered 2 vectors
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
             v1x = Double.parseDouble(inputV1X.getText().toString());
@@ -186,8 +196,14 @@ public class CartesianActivity extends ActionBarActivity {
         EditText inputV3X = (EditText) findViewById(R.id.editText5);
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
-        if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            result.setText("Only 2 Vectors!");
+        /* Check if user has only entered one vector */
+        if ((!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals(""))) {
+            result.setText("ERROR: Must input more than one vector.");
+        }
+
+        /* Check if user has entered more than two vectors */
+        else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
+            result.setText("ERROR: Must input only two vectors!");
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
@@ -201,7 +217,6 @@ public class CartesianActivity extends ActionBarActivity {
             v3 = new Vector2D(v3x, v3y);
 
             result.setText("Dot Product = " + v1.dotProduct(v3));
-
         }
         else if (!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
@@ -215,8 +230,6 @@ public class CartesianActivity extends ActionBarActivity {
             v3 = new Vector2D(v3x, v3y);
 
             result.setText("Dot Product = " + v2.dotProduct(v3));
-
-
         }
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("")) {
 
@@ -230,8 +243,6 @@ public class CartesianActivity extends ActionBarActivity {
             v2 = new Vector2D(v2x, v2y);
 
             result.setText("Dot Product = " + v1.dotProduct(v2));
-
-
         }
         else {
             result.setText("Input Error");
@@ -257,9 +268,16 @@ public class CartesianActivity extends ActionBarActivity {
         EditText inputV3X = (EditText) findViewById(R.id.editText5);
         EditText inputV3Y = (EditText) findViewById(R.id.editText6);
 
-        if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
-            result.setText("Only 2 Vectors!");
+        /* Check if user has only entered one vector  */
+        if ((!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals("") && inputV3X.getText().toString().equals("") && inputV3Y.getText().toString().equals(""))||(!inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("") && inputV2X.getText().toString().equals("") && inputV2Y.getText().toString().equals("") && inputV1X.getText().toString().equals("") && inputV1Y.getText().toString().equals(""))) {
+            result.setText("ERROR: Must input more than one vector.");
         }
+
+        /* Check if a user has entered more than two vectors */
+        else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV2X.getText().toString().equals("") && !inputV2Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
+            result.setText("ERROR: Must input only two vectors!");
+        }
+
         else if (!inputV1X.getText().toString().equals("") && !inputV1Y.getText().toString().equals("") && !inputV3X.getText().toString().equals("") && !inputV3Y.getText().toString().equals("")) {
 
             v1x = Double.parseDouble(inputV1X.getText().toString());
@@ -300,7 +318,6 @@ public class CartesianActivity extends ActionBarActivity {
             v2 = new Vector2D(v2x, v2y);
             cross = Vector2D.crossProduct(v1, v2);
             result.setText("Cross Product = " + cross);
-
         }
         else {
             result.setText("Input Error");

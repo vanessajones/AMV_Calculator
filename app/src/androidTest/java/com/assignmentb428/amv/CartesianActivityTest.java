@@ -117,30 +117,81 @@ public class CartesianActivityTest extends ActivityInstrumentationTestCase2<Cart
     // Test invalid domain logic - Addition of 1 vector in cartesian form
     @UiThreadTest
     public void testAdd1() {
+        v1x.setText("5");
+        v1y.setText("4");
 
+        add.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input more than one vector."));
     }
 
     // Test invalid domain logic - Dot product of 1 vector in cartesian form
     @UiThreadTest
     public void testDot1() {
+        v1x.setText("5");
+        v1y.setText("4");
 
+        dot.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input more than one vector."));
     }
 
     // Test invalid domain logic - Cross product of 1 vector in cartesian form
     @UiThreadTest
     public void testCross1() {
+        v1x.setText("5");
+        v1y.setText("4");
 
+        cross.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input more than one vector."));
     }
 
     // Test invalid domain logic - Dot product of 3 vectors in cartesian form
     @UiThreadTest
     public void testDot3() {
+        v1x.setText("5");
+        v1y.setText("4");
 
+        v2x.setText("5");
+        v2y.setText("4");
+
+        v3x.setText("5");
+        v3y.setText("4");
+
+        dot.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input only two vectors!"));
     }
 
     // Test invalid domain logic - Cross product of 3 vectors in cartesian form
     @UiThreadTest
     public void testCross3() {
+        v1x.setText("5");
+        v1y.setText("4");
 
+        v2x.setText("5");
+        v2y.setText("4");
+
+        v3x.setText("5");
+        v3y.setText("4");
+
+        cross.performClick();
+        assertTrue(result.getText().toString().equals("ERROR: Must input only two vectors!"));
+    }
+
+    // Test invalid domain logic - All other invalid inputs
+    // E.g: Missing one vector coordinate
+    @UiThreadTest
+    public void testOther() {
+        v1x.setText("5");
+
+        // Check addition with missing vector coordinates
+        add.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
+
+        // Check dot product with missing vector coordinates
+        dot.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
+
+        // Check cross product with missing vector coordinates
+        cross.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
     }
 }
