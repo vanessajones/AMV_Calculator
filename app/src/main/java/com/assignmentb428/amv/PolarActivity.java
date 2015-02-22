@@ -196,10 +196,12 @@ public class PolarActivity extends ActionBarActivity {
             result.setText("Sum = (" + numberFormat.format(radius) + ", " + numberFormat.format(angleInDegrees) + "°)");
 
         }
+
         else {
             result.setText("Input Error");
             display.setVisibility(View.INVISIBLE);
         }
+
     }
 
     public void dot(View view) {
@@ -366,9 +368,11 @@ public class PolarActivity extends ActionBarActivity {
             result.setText("Cross Product = " + numberFormat.format(crossProduct));
 
         }
+
         else {
             result.setText("Input Error");
         }
+
         display.setVisibility(View.INVISIBLE);
     }
 

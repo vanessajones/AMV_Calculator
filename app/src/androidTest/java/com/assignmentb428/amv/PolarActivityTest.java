@@ -179,4 +179,41 @@ public class PolarActivityTest extends ActivityInstrumentationTestCase2<PolarAct
         cross.performClick();
         assertTrue(result.getText().toString().equals("ERROR: Must input only two vectors!"));
     }
+
+    // Test invalid domain logic - All other invalid inputs
+    // E.g: Missing one vector coordinate
+    @UiThreadTest
+    public void testOther_Polar() {
+        v1.setText("5");
+
+        // Check addition with missing vector coordinates
+        add.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
+
+        // Check dot product with missing vector coordinates
+        dot.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
+
+        // Check cross product with missing vector coordinates
+        cross.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
+    }
+    // Test invalid domain logic - All other invalid inputs
+    // E.g: Missing one vector coordinate
+    @UiThreadTest
+    public void testOther_Polar() {
+        v1.setText("5");
+
+        // Check addition with missing vector coordinates
+        add.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
+
+        // Check dot product with missing vector coordinates
+        dot.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
+
+        // Check cross product with missing vector coordinates
+        cross.performClick();
+        assertTrue(result.getText().toString().equals("Input Error"));
+    }
 }
